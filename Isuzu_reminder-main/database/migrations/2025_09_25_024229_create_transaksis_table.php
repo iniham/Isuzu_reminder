@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('transaksis', function (Blueprint $table) {
-    $table->string('status')->default('Belum Bayar');
-});
-
+        Schema::create('transaksis', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('transaksis', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('transaksis');
     }
 };
